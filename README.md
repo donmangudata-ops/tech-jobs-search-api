@@ -53,7 +53,7 @@ for job in client.dataset(run.default_dataset_id).iterate_items():
     print(job["companyName"], "|", job["title"], "|", job["location"], "|", job["url"])
 ```
 
-50 jobs cost at most $0.05. The full script is [examples/quickstart.py](examples/quickstart.py): it takes the title words as arguments and saves the jobs to `jobs.csv`.
+50 jobs cost at most $0.05, or $0.06 from October 11, 2026. The full script is [examples/quickstart.py](examples/quickstart.py): it takes the title words as arguments and saves the jobs to `jobs.csv`.
 
 ```bash
 pip install -r examples/requirements.txt
@@ -65,7 +65,7 @@ python examples/quickstart.py "data engineer"
 This request starts a search, waits up to 300 seconds and returns the rows.
 
 ```bash
-curl -X POST "https://api.apify.com/v2/acts/conserving_celerytop~tech-jobs-search/run-sync-get-dataset-items?maxTotalChargeUsd=0.10" \
+curl -X POST "https://api.apify.com/v2/acts/conserving_celerytop~tech-jobs-search/run-sync-get-dataset-items?maxTotalChargeUsd=0.12" \
   -H "Authorization: Bearer $APIFY_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"titleIncludes": ["product designer"], "location": "Berlin", "postedSince": "30 days", "maxResults": 100}'
@@ -128,11 +128,11 @@ To use a token instead of OAuth, send the header `Authorization: Bearer <YOUR_AP
 
 ## Pricing
 
-$1 per 1,000 matching jobs you receive ($0.001 per job), with no Apify platform usage fees on top. Companies with no matching job cost nothing, and a search that finds nothing costs only Apify's start event. `maxResults` and `max_total_charge_usd` both cap the price of a run: when the limit is reached, the run stops and you receive only the jobs you paid for. This is the price in September 2026; the [Store page](https://apify.com/conserving_celerytop/tech-jobs-search) has the current one.
+$1 per 1,000 matching jobs you receive until October 10, 2026, and $1.15 per 1,000 from October 11, 2026 ($1.05 on Scale, $1.00 on Business), with no Apify platform usage fees on top. Companies with no matching job cost nothing, and a search that finds nothing costs only Apify's start event. `maxResults` and `max_total_charge_usd` both cap the price of a run: when the limit is reached, the run stops and you receive only the jobs you paid for. The [Store page](https://apify.com/conserving_celerytop/tech-jobs-search) has the current price.
 
 ## Related
 
-- [ATS Jobs API](https://apify.com/conserving_celerytop/live-career-page-jobs-api): every open job at the companies you name, from 22 job boards, $0.01 per company.
+- [ATS Jobs API](https://apify.com/conserving_celerytop/live-career-page-jobs-api): every open job at the companies you name, from 22 job boards, priced per company (see its Store page).
 - [Live Jobs HTTP API](https://apify.com/conserving_celerytop/live-jobs-http-api): the same job data in one GET or POST request.
 
 Missing a company? Tell us on the **Issues** tab of the [Actor's page](https://apify.com/conserving_celerytop/tech-jobs-search).
