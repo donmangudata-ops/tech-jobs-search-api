@@ -1,6 +1,6 @@
 # Tech Jobs Search API for Python and MCP: AI, startup and remote tech jobs
 
-Search the open jobs of 574 tech, AI, remote-first and European companies by title, place, remote work, seniority, salary and posted date, from Python, curl or an AI agent.
+Search the open jobs of 824 startups and tech, AI, remote-first and European companies by title, place, remote work, seniority, salary and posted date, from Python, curl or an AI agent.
 
 The jobs come from [Tech Jobs Search](https://apify.com/conserving_celerytop/tech-jobs-search), a hosted Actor on Apify. Each search reads the companies' career pages when you run it, so every result is open that day. This repo holds a Python quick start, a curl example and MCP setup for 5 AI clients. There is no scraper code here. The example code is MIT licensed.
 
@@ -25,10 +25,10 @@ One row per matching job, newest first:
 ```
 
 - The same fields as the Actor [ATS Jobs API](https://apify.com/conserving_celerytop/live-career-page-jobs-api), so code written for one reads the other.
-- Four company lists, all picked by default: `ai-companies` (179), `tech-companies` (311), `remote-first` (90) and `europe-tech` (65). A company in two lists is read once: 574 companies in all. The lists are refreshed monthly.
+- Five company lists, all picked by default: `ai-companies` (179), `tech-companies` (311), `remote-first` (90), `europe-tech` (65) and `startups` (250). A company in two lists is read once: 824 companies in all. The lists are refreshed monthly.
 - Filters: `titleIncludes`, `titleExcludes`, `location`, `remoteOnly`, `workplaceTypes`, `seniorities`, `jobFunctions`, `employmentTypes`, `hasSalary`, `minAnnualSalary`, `postedSince`.
 - `maxResults` (default 200, up to 10,000) caps the rows, and with them the price.
-- A search of all four lists takes about 2 minutes.
+- A search of all five lists takes about 3 minutes.
 
 ## Python quick start
 
@@ -53,7 +53,7 @@ for job in client.dataset(run.default_dataset_id).iterate_items():
     print(job["companyName"], "|", job["title"], "|", job["location"], "|", job["url"])
 ```
 
-50 jobs cost at most $0.05, or $0.06 from October 11, 2026. The full script is [examples/quickstart.py](examples/quickstart.py): it takes the title words as arguments and saves the jobs to `jobs.csv`.
+50 jobs cost at most $0.06. The full script is [examples/quickstart.py](examples/quickstart.py): it takes the title words as arguments and saves the jobs to `jobs.csv`.
 
 ```bash
 pip install -r examples/requirements.txt
@@ -128,7 +128,7 @@ To use a token instead of OAuth, send the header `Authorization: Bearer <YOUR_AP
 
 ## Pricing
 
-$1 per 1,000 matching jobs you receive until October 10, 2026, and $1.15 per 1,000 from October 11, 2026 ($1.05 on Scale, $1.00 on Business), with no Apify platform usage fees on top. Companies with no matching job cost nothing, and a search that finds nothing costs only Apify's start event. `maxResults` and `max_total_charge_usd` both cap the price of a run: when the limit is reached, the run stops and you receive only the jobs you paid for. The [Store page](https://apify.com/conserving_celerytop/tech-jobs-search) has the current price.
+$1.15 per 1,000 matching jobs you receive ($1.15 on Starter, $1.05 on Scale, $1.00 on Business), so 100 jobs cost $0.115, with no Apify platform usage fees on top. Companies with no matching job cost nothing, and a search that finds nothing costs only Apify's start event. `maxResults` and `max_total_charge_usd` both cap the price of a run: when the limit is reached, the run stops and you receive only the jobs you paid for. The [Store page](https://apify.com/conserving_celerytop/tech-jobs-search) has the current price.
 
 ## Related
 
