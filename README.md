@@ -130,6 +130,15 @@ To use a token instead of OAuth, send the header `Authorization: Bearer <YOUR_AP
 
 $1.15 per 1,000 matching jobs you receive ($1.15 on Starter, $1.05 on Scale, $1.00 on Business), so 100 jobs cost $0.115, with no Apify platform usage fees on top. Companies with no matching job cost nothing, and a search that finds nothing costs only Apify's start event. `maxResults` and `max_total_charge_usd` both cap the price of a run: when the limit is reached, the run stops and you receive only the jobs you paid for. The [Store page](https://apify.com/conserving_celerytop/tech-jobs-search) has the current price.
 
+## Guides
+
+Step-by-step guides with full Python code:
+
+- [Hiring signals for sales: score your account list from job postings](https://donmangudata-ops.github.io/hiring-signals-for-sales/)
+- [Greenhouse jobs API in Python](https://donmangudata-ops.github.io/greenhouse-jobs-api-python/)
+- [Lever postings API in Python](https://donmangudata-ops.github.io/lever-postings-api-python/)
+- [Ashby job board API in Python](https://donmangudata-ops.github.io/ashby-job-board-api-python/)
+
 ## Related
 
 - [ATS Jobs API](https://apify.com/conserving_celerytop/live-career-page-jobs-api): every open job at the companies you name, from 22 job boards, priced per company (see its Store page).
